@@ -15,4 +15,4 @@ How to use it
 License
 ---
 
-This little plugin is licensed under the MIT license. See the MIT-LICENSE.txt file for details. The images used in this example (birthday.jpg) is copyrighted (by me) and may not be used by you. Why would you want a picture of my kid, anyway?
+This little plugin is licensed under the MIT license. See the MIT-LICENSE.txt file for details. The image used in this example (birthday.jpg) is copyrighted (by me) and may not be used by you. Why would you want a picture of my kid, anyway?
