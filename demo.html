@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>jQuery Backgrounder Plugin Demo</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="utf-8"></script> 
+  <script src="jquery.backgrounder.js" type="text/javascript" charset="utf-8"></script>
+  
+  <script type="text/javascript" charset="utf-8">
+    $(function() {
+      $('#my_background').backgrounder();
+    });
+  </script>
+  
+  <style type="text/css" media="screen">
+    body {font: 85% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;}
+    #sample_header {
+      width:250px;
+      height:40px;
+      background:#777;
+      position:absolute;
+      left:0;
+      top:0;
+      border-bottom:2px solid #666;
+    }
+    h1 {
+      font-size:1.25em;
+      margin:0;
+      padding:0 5px;
+      line-height:40px;
+      color:#111;
+      text-shadow: #999 0px 1px 0px;
+    }
+    #sample_body {
+      width:500px;
+      margin:100px auto 0 auto;
+      background:#fff;
+      opacity: 0.8;
+      -moz-opacity: 0.8;
+      filter:alpha(opacity=80);
+    }
+    #sample_body p, #sample_body h2 {
+      margin:0;
+      padding:5px 10px;
+    }
+  </style>
+  
+</head>
+
+<body>
+<div id="sample_header"><h1>jQuery Backgrounder</h1></div>
+
+<div id="sample_body">
+  <h2>What's going on here?</h2>
+  <p>This is a demo of the <strong>jQuery Backgrounder plugin</strong>. This plugin allows you 
+    to fill the background of a page with an image–all while maintaining the aspect ratio and 
+    gracefully handling window resizing.</p>
+  <h2>How to use it</h2>
+  <ul>
+    <li>Include jQuery and the plugin file in your page</li>
+    <li>Add a div to your page which includes an image. The div can be set to display:none; if you'd like. 
+      I prefer fairly large images but any size will do.</li>
+    <li>Call the backgrounder() function on your div&mdash;preferably when the page loads. </li>
+    <li>Use the source of this page for guidance.</li>
+  </ul>
+  <h2>License</h2>
+  <p>This little plugin is licensed under the MIT license. See the MIT-LICENSE.txt file for details. 
+    The images used in this example (birthday.jpg) is copyrighted (by me) and <em>may not</em> be used 
+    by you. Why would you want a picture of my kid, anyway? </p>
+</div>
+
+
+<div id="my_background"><img src="birthday.jpg" alt="Birthday party" /></div>
+
+</body>
+</html>
