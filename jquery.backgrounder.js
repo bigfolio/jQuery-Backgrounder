@@ -1,6 +1,6 @@
 (function($) {
   $.fn.backgrounder = function(options) {
-    var defaults = { };
+    var defaults = { element : 'body' };
     var options = $.extend(defaults, options);
 	// Get the image we're using
     var img = $(this).children('img').first();
@@ -8,29 +8,46 @@
 	var src = $(img).attr('src');
 	// Hide the original element
 	$(this).hide();
+	// Make parent relative
+	w = options.element == 'body' ? $(window).width() : $(options.element).width();
+	h = options.element == 'body' ? $(window).height() : $(options.element).height();	
 	// Create a new div
 	$('<div id="backgrounder-container"></div>')
-      .css({'position':'absolute','z-index':-100,'left':0,'top':0,'overflow':'hidden','width':$(window).width(),'height':$(window).height()})
-	  .appendTo($('body'))
+      .css({'position':'absolute','z-index':-100,'left':0,'top':0,'overflow':'hidden','width':w,'height':h})
+	  .appendTo($(options.element))
 	// Create a new image
     $('<img />')
       .appendTo($('#backgrounder-container'))
       .attr('src',src)
       .css({'position':'absolute'})
+	  .hide()
       .load(function() {
-        resizeBackgrounder(this);
+        resizeBackgrounder(this, options.element);
+		$(this).fadeIn();
       })
 	// Resize handler
 	$(window).resize(function() {
-      $('#backgrounder-container').css({'width':$(window).width(),'height':$(window).height()})
-      resizeBackgrounder('#backgrounder-container img:first');
+      	var newW = options.element == 'body' ? $(window).width() : $(options.element).width();
+		var newH = options.element == 'body' ? $(window).height() : $(options.element).height();
+		$('#backgrounder-container').css({'width':newW,'height':newH});
+      	resizeBackgrounder('#backgrounder-container img:first', options.element);
     })
 	// Update function
-	function resizeBackgrounder(item) {
-      var w = $(window).width();
-      var h = $(window).height();
+	function resizeBackgrounder(item, elem) {
+	  console.log("Background resized ... ");
+      if (elem != 'body') {
+	  	w = $(elem).width();
+	  	h = $(elem).height();
+	  } else {
+	  	w = $(window).width();
+	  	h = $(window).height();
+	  }
+	  console.log("Element Width: " + w);
+	  console.log("Element Height: " + h);
       var ow = $(item).width();
       var oh = $(item).height();
+	  console.log("Container Width: " + ow);
+	  console.log("Container Height: " + oh);
       if (ow / oh > w / h) { // image aspect ratio is wider than browser window
         var scale = h / oh;
         $(item).attr({'width':ow * scale,'height':oh * scale});

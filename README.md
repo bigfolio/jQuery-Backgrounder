@@ -9,6 +9,7 @@ How to use it
 * Include jQuery and the plugin file in your page
 * Add a div to your page which includes an image. The div can be set to display:none; if you'd like. I prefer fairly large images but any size will do.
 * Call the backgrounder() function on your div—preferably when the page loads.
+* Include the "element" option to apply it to a specific element (default is the body)
 * No CSS file is required
 * Use the demo.html page for guidance.
 
